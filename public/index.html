@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Excel Product Search Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>Excel Product Search Portal</h1>
+      <p>Upload Excel files and instantly search products.</p>
+    </header>
+
+    <section class="upload-section card">
+      <h2>Upload Excel Files</h2>
+      <form id="uploadForm">
+        <input
+          type="file"
+          id="excelFiles"
+          name="files"
+          accept=".xls,.xlsx"
+          multiple
+        />
+        <button type="submit" class="btn-primary">Upload &amp; Process</button>
+      </form>
+      <div id="uploadStatus" class="status-text"></div>
+    </section>
+
+    <section class="search-section card">
+      <div class="search-header">
+        <h2>Search Products</h2>
+        <span id="totalRecords" class="badge">Total: 0</span>
+      </div>
+
+      <div class="search-wrapper">
+        <div class="search-input-container">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by Product No or Description..."
+            autocomplete="off"
+          />
+          <div id="loadingSpinner" class="spinner hidden"></div>
+        </div>
+
+        <div id="dropdown" class="dropdown hidden"></div>
+        <div id="noResults" class="no-results hidden">No results found</div>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <span>Supports up to 500,000 records with fast search.</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
